@@ -28,4 +28,9 @@ Rails.application.routes.draw do
   post "/projects" => "projects#create"
   patch "/projects/:id" => "projects#update"
   delete "/projects/:id" => "projects#destroy"
+
+  post "/signup" => "users#create"
+
+  post "/login" => "sessions#create"
+  delete "/logout" => "sessions#destroy"
 end
