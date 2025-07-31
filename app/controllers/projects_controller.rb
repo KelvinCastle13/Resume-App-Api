@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
       name: params[:name],
       description: params[:description],
       url: params[:url]
+      student_id: params[:student_id]
     )
 
     if @project.valid?
@@ -29,7 +30,8 @@ class ProjectsController < ApplicationController
     @project.update(
       name: params["name"] || @project.name,
       description: params["description"] || @project.description,
-      url: params["url"] || @project.url
+      url: params["url"] || @project.url,
+      student_id: params["student_id"] || @project.student_id
     )
 
     if @project.valid?
