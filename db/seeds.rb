@@ -104,3 +104,27 @@ Skill.create!([
 
 puts "Seeding complete!"
 
+## Update to add student IDs
+i = 1
+Experience.find_each do |experience|
+  experience.update(student_id: i)
+  i += 1
+end
+
+i = 1
+Skill.find_each do |skill|
+  skill.update(student_id: i)
+  i += 1
+end
+
+i = 1
+Project.find_each do |project|
+  project.update(student_id: i)
+  i += 1
+end
+
+i = 1
+Education.find_each do |education|
+  education.update(student_id: i)
+  i += 1
+end
