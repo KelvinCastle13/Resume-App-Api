@@ -44,23 +44,30 @@ Student.create!([
 
 puts "Seeding data..."
 
+# Assuming Students have already been created above this in the file:
+# students = Student.all or explicitly:
+alice = Student.first
+bob = Student.second
+clara = Student.third
+
 Education.create!([
   {
     start_date: "2018-08",
     end_date: "2022-05",
     degree: "Bachelor of Science in Computer Science",
     university_name: "University of California, Berkeley",
-    details: "Focused on software development, data structures, and machine learning."
+    details: "Focused on software development, data structures, and machine learning.",
+    student_id: alice.id
   },
   {
     start_date: "2023-01",
     end_date: "2023-12",
     degree: "Full Stack Web Development Bootcamp",
     university_name: "General Assembly",
-    details: "Built full-stack applications using JavaScript, React, and Ruby on Rails."
+    details: "Built full-stack applications using JavaScript, React, and Ruby on Rails.",
+    student_id: bob.id
   }
 ])
-
 
 Experience.create!([
   {
@@ -68,14 +75,16 @@ Experience.create!([
     end_date: "2023-12",
     job_title: "Junior Web Developer",
     company_name: "TechNova Solutions",
-    details: "Worked on internal tools using React and Ruby on Rails. Collaborated with a team using Agile practices."
+    details: "Worked on internal tools using React and Ruby on Rails. Collaborated with a team using Agile practices.",
+    student_id: alice.id
   },
   {
     start_date: "2021-06",
     end_date: "2022-05",
     job_title: "Software Engineering Intern",
     company_name: "Startup Hub",
-    details: "Developed a dashboard for client metrics and improved system performance by 20%."
+    details: "Developed a dashboard for client metrics and improved system performance by 20%.",
+    student_id: bob.id
   }
 ])
 
@@ -83,48 +92,22 @@ Project.create!([
   {
     name: "Portfolio Website",
     description: "A personal website showcasing projects, resume, and contact form.",
-    url: "https://myportfolio.com"
+    url: "https://myportfolio.com",
+    student_id: alice.id
   },
   {
     name: "Task Manager App",
     description: "A full-stack CRUD app to manage daily tasks with user authentication.",
-    url: "https://github.com/username/task-manager"
+    url: "https://github.com/username/task-manager",
+    student_id: clara.id
   }
 ])
 
-
 Skill.create!([
-  { skill_name: "JavaScript" },
-  { skill_name: "React" },
-  { skill_name: "Ruby on Rails" },
-  { skill_name: "PostgreSQL" },
-  { skill_name: "HTML & CSS" },
-  { skill_name: "Git & GitHub" }
+  { skill_name: "JavaScript", student_id: alice.id },
+  { skill_name: "React", student_id: alice.id },
+  { skill_name: "Ruby on Rails", student_id: bob.id },
+  { skill_name: "PostgreSQL", student_id: bob.id },
+  { skill_name: "HTML & CSS", student_id: clara.id },
+  { skill_name: "Git & GitHub", student_id: clara.id }
 ])
-
-puts "Seeding complete!"
-
-## Update to add student IDs
-i = 1
-Experience.find_each do |experience|
-  experience.update(student_id: i)
-  i += 1
-end
-
-i = 1
-Skill.find_each do |skill|
-  skill.update(student_id: i)
-  i += 1
-end
-
-i = 1
-Project.find_each do |project|
-  project.update(student_id: i)
-  i += 1
-end
-
-i = 1
-Education.find_each do |education|
-  education.update(student_id: i)
-  i += 1
-end
