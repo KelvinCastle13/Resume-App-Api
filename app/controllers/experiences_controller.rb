@@ -17,7 +17,7 @@ class ExperiencesController < ApplicationController
       job_title: params[:job_title],
       company_name: params[:company_name],
       details: params[:details],
-      student_id: params["student_id"]
+      student_id: params[:student_id]
     )
 
     if @experience.valid?
@@ -36,7 +36,7 @@ class ExperiencesController < ApplicationController
       job_title: params["job_title"] || @experience.job_title,
       company_name: params["company_name"] || @experience.company_name,
       details: params["details"] || @experience.details,
-      student_id: params["student_id"] || @experience.student_id,
+      student_id: params["student_id"] || @experience.student_id
     )
 
     if @experience.valid?
