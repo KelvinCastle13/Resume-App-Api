@@ -11,7 +11,8 @@ class SkillsController < ApplicationController
 
   def create
     @skill = Skill.create(
-      skill_name: params[:skill_name]
+      skill_name: params[:skill_name],
+      student_id: params[:student_id]
     )
 
     if @skill.valid?
@@ -25,7 +26,8 @@ class SkillsController < ApplicationController
     @skill = Skill.find(params[:id])
 
     @skill.update(
-      skill_name: params["skill_name"] || @skill.skill_name
+      skill_name: params["skill_name"] || @skill.skill_name,
+      student_id: params["student_id"] || @skill.student_id
     )
 
     if @skill.valid?
