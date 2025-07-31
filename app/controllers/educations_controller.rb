@@ -15,7 +15,8 @@ class EducationsController < ApplicationController
       end_date: params[:end_date],
       degree: params[:degree],
       university_name: params[:university_name],
-      details: params[:details]
+      details: params[:details],
+      student_id: params[:student_id]
     )
 
     if @education.valid?
@@ -33,7 +34,8 @@ class EducationsController < ApplicationController
       end_date: params["end_date"] || @education.end_date,
       degree: params["degree"] || @education.degree,
       university_name: params["university_name"] || @education.university_name,
-      details: params["details"] || @education.details
+      details: params["details"] || @education.details,
+      student_id: params[:student_id] || @education.student_id
     )
 
     if @education.valid?
