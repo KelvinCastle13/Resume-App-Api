@@ -1,15 +1,22 @@
 class StudentsController < ApplicationController
   before_action :authenticate_user, except: [:index, :show]
   def index
-    @students = Student.all
-
-    render :index
+    if current_user
+      @student = current_user.student
+      render :show
+    else
+      @students = Student.all
+      render :index
+    end
   end
 
   def show
-    @student = Student.find(params["id"])
-
-    render json: @student
+    if current_user
+      @student = current_user.student
+    else
+      @student = Student.find(params["id"])
+    end
+    render :show
   end
 
   def create
@@ -25,6 +32,7 @@ class StudentsController < ApplicationController
     online_resume_url: params["online_resume_url"],
     github_url: params["github_url"],
     photo: params["photo"],
+    user_id: current_user.id
     )
 
     render json: @student
@@ -45,6 +53,7 @@ class StudentsController < ApplicationController
     online_resume_url: params["online_resume_url"] || @student.online_resume_url,
     github_url: params["github_url"] || @student.github_url,
     photo: params["photo"] || @student.photo,
+    user_id: @student.user_id
     )
 
     render json: { message: "Student Updated!" }

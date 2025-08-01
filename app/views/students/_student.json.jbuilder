@@ -1,7 +1,7 @@
 json.extract! student, :id, :first_name, :last_name, :email, :phone_number,
                       :short_bio, :linkedin_url, :twitter_handle,
                       :personal_blog_website_url, :online_resume_url,
-                      :github_url, :photo, :created_at, :updated_at
+                      :github_url, :photo, :created_at, :updated_at, :user_id
 
 json.educations student.educations do |education|
   json.extract! education, :id, :start_date, :end_date, :degree,
