@@ -1,3 +1,24 @@
+User.create!([
+  {
+    name: "Alice Johnson",
+    email: "alice.johnson@example.com",
+    password: "alicejohnson",
+    password_confirmation: "alicejohnson"
+},
+  {
+    name: "Bob Smith",
+    email: "bob.smith@example.com",
+    password: "bobsmith",
+    password_confirmation: "bobsmith"
+  },
+  {
+    name: "Clara Nguyen",
+    email: "clara.nguyen@example.com",
+    password: "claranguyen",
+    password_confirmation: "claranguyen"
+  }
+])
+
 Student.create!([
   {
     first_name: "Alice",
@@ -10,7 +31,8 @@ Student.create!([
     personal_blog_website_url: "https://alicejohnson.dev",
     online_resume_url: "https://alicejohnson.dev/resume.pdf",
     github_url: "https://github.com/alicejohnson",
-    photo: "https://example.com/photos/alice.jpg"
+    photo: "https://example.com/photos/alice.jpg",
+    user_id: 1
   },
   {
     first_name: "Bob",
@@ -23,7 +45,8 @@ Student.create!([
     personal_blog_website_url: "https://bobsmith.io",
     online_resume_url: "https://bobsmith.io/resume",
     github_url: "https://github.com/bobsmith",
-    photo: "https://example.com/photos/bob.jpg"
+    photo: "https://example.com/photos/bob.jpg",
+    user_id: 2
   },
   {
     first_name: "Clara",
@@ -36,7 +59,8 @@ Student.create!([
     personal_blog_website_url: "https://claracodes.dev",
     online_resume_url: "https://claracodes.dev/resume.pdf",
     github_url: "https://github.com/claranguyen",
-    photo: "https://example.com/photos/clara.jpg"
+    photo: "https://example.com/photos/clara.jpg",
+    user_id: 3
   }
 ])
 
